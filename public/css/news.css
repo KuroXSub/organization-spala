@@ -1,0 +1,93 @@
+.news-title a {
+    color: black;
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+}
+
+.news-title a::after {
+    content: '';
+    display: block;
+}
+
+.news-title a:hover::after {
+    width: 100%;
+}
+
+.news-title {
+    height: 3rem; /* Tinggi tetap untuk judul (2 baris) */
+    overflow: hidden;
+}
+
+.news-content {
+    height: 4.5rem; /* Tinggi tetap untuk konten (3 baris) */
+    overflow: hidden;
+    color: black;
+}
+
+.news-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.news-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.card-title.news-title {
+    font-size: 1.25rem; /* Ukuran font judul */
+    font-weight: 600; /* Ketebalan font judul */
+    margin-bottom: 10px; /* Jarak antara judul dan gambar */
+    color: #333; /* Warna teks judul */
+}
+
+.card-title.news-title a {
+    color: inherit; /* Warisi warna dari parent */
+    text-decoration: none; /* Hilangkan underline pada link */
+    transition: color 0.3s ease; /* Animasi perubahan warna */
+}
+
+.card-title.news-title a:hover {
+    color: #80C4D3; /* Warna saat hover */
+}
+
+.news-content {
+    font-size: 0.95rem; /* Ukuran font konten */
+    color: #555; /* Warna teks konten */
+    line-height: 1.6; /* Tinggi baris untuk konten */
+    margin-bottom: 15px; /* Jarak antara konten dan bagian bawah card */
+    overflow: hidden;
+}
+
+@media (max-width: 767px) {
+    .col-md-3 {
+        width: 50%; /* 1 kolom untuk berita di mobile */
+    }
+
+    .news-title {
+        height: 2.5rem; /* Tinggi tetap untuk judul (2 baris) */
+        overflow: hidden;
+    }
+
+    .card-title.news-title {
+        font-size: 1rem; /* Ukuran font judul lebih kecil di mobile */
+    }
+
+    .btn.custom-btn {
+        display: block; /* Mengubah tombol menjadi block agar memenuhi lebar parent */
+        margin: 0 auto; /* Membuat tombol berada di tengah */
+        text-align: center; /* Memastikan teks di dalam tombol juga rata tengah */
+        width: 50%;
+    }
+
+    .news-content {
+        height: 4rem; /* Tinggi tetap untuk konten (3 baris) */
+        overflow: hidden;
+        font-size: 0.8rem; /* Ukuran font konten lebih kecil di mobile */
+    }
+}

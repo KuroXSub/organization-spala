@@ -1,0 +1,39 @@
+.galleries-title {
+    color: black;
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+}
+
+.galleries-title::after {
+    content: '';
+    display: block;
+}
+
+.galleries-title:hover::after {
+    width: 100%;
+}
+
+.galleries-title {
+    height: 3rem; /* Tinggi tetap untuk judul (2 baris) */
+    overflow: hidden;
+}
+
+@media (max-width: 767px) {
+    .col-md-4 {
+        width: 50%; /* 3 kolom untuk galeri */
+    }
+
+    .col-md-4:nth-child(3n+1) {
+        width: 50%; /* 3 kolom untuk galeri */
+    }
+
+    .galleries-title {
+        height: 3rem; /* Tinggi tetap untuk judul (2 baris) */
+        overflow: hidden;
+    }
+
+    .card-text.galleries-title {
+        font-size: 0.9rem; /* Ukuran font judul lebih kecil di mobile */
+    }
+}

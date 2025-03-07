@@ -1,0 +1,54 @@
+/* Gaya umum untuk section about */
+.welcome {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.about p:first-of-type {
+    column-count: 1;
+    column-gap: 20px;
+    margin-bottom: 0px;
+    text-align: justify;
+}
+
+.p-f {
+    padding: 2rem;
+}
+
+.btn-fix {
+    display: block; /* Mengubah tombol menjadi block agar memenuhi lebar parent */
+    margin: 0 auto; /* Membuat tombol berada di tengah */
+    text-align: center; /* Memastikan teks di dalam tombol juga rata tengah */
+    width: 50%;
+}
+
+@media (max-width: 767px) {
+    .about p:first-of-type {
+        column-count: 1;
+        column-gap: 20px;
+        margin-bottom: 20px;
+        text-align: justify;
+    }
+
+    .p-f {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .p-t {
+        padding-top: 0.1rem;
+    }
+
+    .about h5{
+        font-size: 1.1rem;
+    }
+
+    .about p, li{
+        font-size: 0.9rem;
+    }
+}
+
+

@@ -1,0 +1,44 @@
+/* Sub-title & list */
+
+.sub-title {
+    position: relative;
+    padding: 0px 0; /* Ubah padding agar teks berada di tengah vertikal */
+    color: #80C4D3;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center; /* Pusatkan teks */
+    display: inline-block; /* Agar width sesuai konten */
+}
+
+.sub-title::before,
+.sub-title::after {
+    content: '\2022';
+    color: #80C4D3;
+    font-size: 2rem;
+    position: absolute;
+    top: 50%; /* Pusatkan bullet vertikal */
+    transform: translateY(-50%); /* Koreksi pemusatan vertikal */
+}
+
+.sub-title::before {
+    left: -25px;
+}
+
+.sub-title::after {
+    right: -25px;
+}
+
+ol {
+    list-style-type: decimal;
+    list-style-position: outside;
+    margin-left: 20px;
+    padding-left: 0;
+}
+
+ul {
+    list-style-type: disc;
+    list-style-position: outside;
+    margin-left: 0;
+    padding-left: 0;
+}
+
