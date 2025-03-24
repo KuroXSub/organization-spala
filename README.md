@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Website Organisasi Sederhana - README</title>
-</head>
-<body>
+
 <h1>Website Organisasi Sederhana</h1>
 <p>Website ini adalah sebuah platform sederhana untuk organisasi yang dilengkapi dengan fitur CRUD (Create, Read, Update, Delete) untuk berita dan galeri, serta beberapa halaman dinamis seperti beranda, organisasi, dan tentang kami. Website ini juga memiliki fitur pencarian, filter berdasarkan tahun, dan pagination untuk berita dan galeri. Manajemen admin dilakukan menggunakan Filament v3. Website ini dikembangkan dengan Laravel 12, menggunakan Laragon sebagai web server dan database, dengan PHP 8.3.15 dan MySQL 8.0.30.</p>
 
@@ -46,35 +41,35 @@
 
 <h3>Langkah-langkah Instalasi</h3>
 <ol>
-    <li><strong>Clone Repository:</strong></li>
-    <pre><code>git clone https://github.com/KuroXSub/organization-spala.git
+<li><strong>Clone Repository:</strong></li>
+<pre><code>git clone https://github.com/KuroXSub/organization-spala.git
 cd organization-spala</code></pre>
-    
-    <li><strong>Setup Environment:</strong></li>
-    <pre><code>cp .env.example .env</code></pre>
-    <p>Buka file <code>.env</code> dan sesuaikan konfigurasi database:</p>
-    <pre><code>DB_CONNECTION=mysql
+
+<li><strong>Setup Environment:</strong></li>
+<pre><code>cp .env.example .env</code></pre>
+<p>Buka file <code>.env</code> dan sesuaikan konfigurasi database:</p>
+<pre><code>DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=db_spala
 DB_USERNAME=root
 DB_PASSWORD=</code></pre>
     
-    <li><strong>Generate Application Key:</strong></li>
-    <pre><code>php artisan key:generate</code></pre>
-    
-    <li><strong>Install Dependencies:</strong></li>
-    <pre><code>composer install
+<li><strong>Generate Application Key:</strong></li>
+<pre><code>php artisan key:generate</code></pre>
+
+<li><strong>Install Dependencies:</strong></li>
+<pre><code>composer install
 npm install</code></pre>
-    
-    <li><strong>Build Assets:</strong></li>
-    <pre><code>npm run build</code></pre>
-    
-    <li><strong>Jalankan Migrasi:</strong></li>
-    <pre><code>php artisan migrate</code></pre>
-    
-    <li><strong>Jalankan Server:</strong></li>
-    <pre><code>composer run dev
+
+<li><strong>Build Assets:</strong></li>
+<pre><code>npm run build</code></pre>
+
+<li><strong>Jalankan Migrasi:</strong></li>
+<pre><code>php artisan migrate</code></pre>
+
+<li><strong>Jalankan Server:</strong></li>
+<pre><code>composer run dev
 php artisan serve</code></pre>
     <p>Buka browser dan akses <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a> untuk melihat website.</p>
 </ol>
@@ -107,5 +102,3 @@ php artisan serve</code></pre>
 
 <h3>3. Penambahan Layout (CSS) untuk Show Artikel</h3>
 <p>Halaman show artikel telah diperbarui dengan desain responsif.</p>
-</body>
-</html>
