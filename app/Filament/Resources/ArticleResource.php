@@ -26,8 +26,9 @@ class ArticleResource extends Resource
                 Forms\Components\TextInput::make('title')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\Textarea::make('content')
-                    ->autosize()
+                Forms\Components\RichEditor::make('content')
+                ->fileAttachmentsDirectory('articles/content') // Direktori untuk menyimpan file
+                ->fileAttachmentsVisibility('public') // File dapat diakses publik
                     ->required(),
                 Forms\Components\FileUpload::make('image')
                     ->directory('articles')
@@ -54,11 +55,14 @@ class ArticleResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\Action::make('activities')->url(fn($record) => ArticleResource::getUrl('activities', ['record' => $record])),
+                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\RestoreAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
-                    Tables\Actions\ForceDeleteBulkAction::make(),
+                    // Tables\Actions\ForceDeleteBulkAction::make(),
                     Tables\Actions\RestoreBulkAction::make(),
                 ]),
             ]);
@@ -77,6 +81,7 @@ class ArticleResource extends Resource
             'index' => Pages\ListArticles::route('/'),
             'create' => Pages\CreateArticle::route('/create'),
             'edit' => Pages\EditArticle::route('/{record}/edit'),
+            'activities' => Pages\ActivityLogPage::route('/{record}/activities'),
         ];
     }
 

@@ -3,25 +3,25 @@
 @section('title', 'Beranda - SPALA')
 
 @section('content')
-
-<section class="welcome">
-    <section class="bg-white">
-        <div class="row about">
-            <div class="col-lg-6 p-f">
-                <h2 class="mb-3 text-center" style="font-weight: 500;">Tentang Kami</h2>
-                <p class="lead text-justify">
-                    SPALA (Siswa Pecinta Alam) adalah suatu organisasi pecinta alam yang ada di SMA Negeri Banyumas, salah satu SMA di provinsi Jawa Tengah. Pada tanggal 14 Agustus 1990, SPALA resmi didirikan oleh tiga orang guru yaitu Bapak Gunarso, Bapak Kodrat, dan Bapak Tugur. Jumlah anggota pada angkatan pertama adalah 121 siswa.
-                </p>
-                <a href="{{ route('about') }}" class="btn custom-btn btn-fix mt-2">Tentang Kami</a>
-            </div>
-            <div class="col-lg-6 p-f p-t">
-                <div class="card" data-bs-target="#imageModal" data-image="{{ asset('img/img-tentang-kami1.png') }}">
-                    <div class="image-container">
-                        <img src="{{ asset('img/img-tentang-kami1.png') }}" class="img-fluid rounded shadow gallery-image" alt="Gambar Tentang Kami 1">
+    <section class="welcome">
+        <section class="bg-white">
+            <div class="row about">
+                <div class="col-lg-6 p-f">
+                    <h2 class="mb-3 text-center" style="font-weight: 500;">{{ $welcomeTentang->title }}</h2>
+                    <p class="lead text-justify">
+                        {!! $welcomeTentang->content !!}
+                    </p>
+                    <a href="{{ route('about') }}" class="btn custom-btn btn-fix mt-2">Tentang Kami</a>
+                </div>
+                <div class="col-lg-6 p-f p-t">
+                    <div class="card" data-bs-target="#imageModal" data-image="{{ asset('storage/' . $welcomeImage->image) }}">
+                        <div class="image-container">
+                            <img src="{{ asset('storage/' . $welcomeImage->image) }}" class="img-fluid rounded shadow gallery-image" alt="Gambar Tentang Kami">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </section>
     
     <section class="py-4 text-left">
@@ -38,7 +38,7 @@
                             <img src="{{ asset('storage/' . $news->image) }}" alt="{{ $news->title }}" class="news-image">
                         </div>
                         <a href="{{ route('news.show', $news) }}" class="text-decoration-none news-content"> 
-                            <p class="card-text news-content">{{ Str::limit($news->content, 100) }}</p>
+                            <p class="card-text news-content">{{ Str::limit(strip_tags($news->content), 100) }}</p>
                         </a>
                     </div>
                 </div>

@@ -29,8 +29,7 @@ class MaterialResource extends Resource
                     ->maxLength(255),
                 Forms\Components\RichEditor::make('content')
                     ->required(),
-                Forms\Components\FileUpload::make('file')
-                    ->directory('materials'),
+                Forms\Components\TextInput::make('link'),
             ]);
     }
 
@@ -48,17 +47,20 @@ class MaterialResource extends Resource
                     ->sortable(),
             ])
             ->filters([
-                Filter::make('has_file')
-                    ->query(fn (Builder $query): Builder => $query->whereNotNull('file')),
+                Filter::make('has_link')
+                    ->query(fn (Builder $query): Builder => $query->whereNotNull('link')),
                 Tables\Filters\TrashedFilter::make(),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\Action::make('activities')->url(fn($record) => MaterialResource::getUrl('activities', ['record' => $record])),
+                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\RestoreAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
-                    Tables\Actions\ForceDeleteBulkAction::make(),
+                    // Tables\Actions\ForceDeleteBulkAction::make(),
                     Tables\Actions\RestoreBulkAction::make(),
                 ]),
             ]);
@@ -77,6 +79,7 @@ class MaterialResource extends Resource
             'index' => Pages\ListMaterials::route('/'),
             'create' => Pages\CreateMaterial::route('/create'),
             'edit' => Pages\EditMaterial::route('/{record}/edit'),
+            'activities' => Pages\ActivityLogPage::route('/{record}/activities'),
         ];
     }
 

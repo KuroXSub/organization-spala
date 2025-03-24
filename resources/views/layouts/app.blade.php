@@ -10,6 +10,7 @@
     <link href="{{ asset('css/galleries.css') }}" rel="stylesheet">
     <link href="{{ asset('css/navigation.css') }}" rel="stylesheet">
     <link href="{{ asset('css/news.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/news-show.css') }}" rel="stylesheet">
     <link href="{{ asset('css/search.css') }}" rel="stylesheet">
     <link href="{{ asset('css/section.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">

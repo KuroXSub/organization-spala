@@ -34,7 +34,7 @@
                                         <img src="{{ asset('storage/' . $article->image) }}" alt="{{ $article->title }}" class="news-image">
                                     </div>
                                     <a href="{{ route('news.show', $article) }}" class="text-decoration-none news-content"> 
-                                        <p class="card-text news-content">{{ Str::limit($article->content, 100) }}</p>
+                                        <p class="card-text news-content">{{ Str::limit(strip_tags($article->content), 100) }}</p>
                                     </a>
                                 </div>
                             </div>

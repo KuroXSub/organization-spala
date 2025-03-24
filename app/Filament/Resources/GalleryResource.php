@@ -53,11 +53,14 @@ class GalleryResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\Action::make('activities')->url(fn($record) => GalleryResource::getUrl('activities', ['record' => $record])),
+                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\RestoreAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
-                    Tables\Actions\ForceDeleteBulkAction::make(),
+                    // Tables\Actions\ForceDeleteBulkAction::make(),
                     Tables\Actions\RestoreBulkAction::make(),
                 ]),
             ]);
@@ -66,7 +69,7 @@ class GalleryResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            
         ];
     }
 
@@ -76,6 +79,7 @@ class GalleryResource extends Resource
             'index' => Pages\ListGalleries::route('/'),
             'create' => Pages\CreateGallery::route('/create'),
             'edit' => Pages\EditGallery::route('/{record}/edit'),
+            'activities' => Pages\ActivityLogPage::route('/{record}/activities'),
         ];
     }
 
